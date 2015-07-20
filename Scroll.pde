@@ -40,6 +40,7 @@ class Scroll {
     if (mapstatus==scrollright) {
       x-=17;
       link.x=x;
+      burin.x=x;
       field1.x=x-field1.img.width;
       fieldRight.x=x;
       if (x<=0) {
@@ -53,6 +54,7 @@ class Scroll {
     if (mapstatus==scrollleft) {
       x+=17;
       link.x=x;
+      burin.x=x;
       field1.x=x-field1.img.width;
       fieldRight.x=x;
       if (x>=width) {

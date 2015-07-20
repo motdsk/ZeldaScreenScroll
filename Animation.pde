@@ -1,4 +1,5 @@
 Player link;
+Enemy burin;
 Field field1;
 Field fieldUp, fieldRight;
 Scroll scroll;
@@ -10,7 +11,8 @@ int scrollup=3;
 int scrollright=4;
 int scrolldown=5;
 int scrollleft=6;
-
+int slush=1;
+int kaitenSlush=2;
 void setup() {
   size(800, 600);
   link=new Player();
@@ -18,7 +20,9 @@ void setup() {
   fieldUp=new Field(field1.x+65, field1.y-1480, "zelda_field_up.png");
   fieldRight=new Field(field1.x+field1.img.width, -2000, "zelda_field_right.png");
   scroll=new Scroll();
+  burin=new Enemy();
   ellipseMode(CENTER);
+  noStroke();
 }
 
 
@@ -33,20 +37,24 @@ void fieldMove() {
   if (scroll.mapstatus==center) {
     field1.move();
     field1.display();
-    link.move();
+
     link.display();
+    link.move();
   }
   if (scroll.mapstatus==up) {
     fieldUp.move();
     fieldUp.display();
-    link.move();
+
     link.display();
+    link.move();
   }
   if (scroll.mapstatus==right) {
     fieldRight.move();
     fieldRight.display();
     link.move();
     link.display();
+    burin.move();
+    burin.display();
   }
   if (scroll.mapstatus==scrollup || scroll.mapstatus==scrolldown) {
     scroll.mapscroll();
@@ -54,10 +62,11 @@ void fieldMove() {
     fieldUp.display();
     link.display();
   }
-   if (scroll.mapstatus==scrollright || scroll.mapstatus==scrollleft) {
+  if (scroll.mapstatus==scrollright || scroll.mapstatus==scrollleft) {
     scroll.mapscroll();
     field1.display();
     fieldRight.display();
     link.display();
+    burin.display();
   }
 }

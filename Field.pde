@@ -11,14 +11,14 @@ class Field {
   void move() {
     if (link.flagy==false) {
       if (keyPressed) {
-        if (key=='w') y+=4;
-        if (key=='s') y-=4;
+        if (keyCode==UP) y+=4;
+        if (keyCode==DOWN) y-=4;
       }
     }
     if (link.flagx==false) {
       if (keyPressed) {
-        if (key=='a') x+=4;
-        if (key=='d') x-=4;
+        if (keyCode==LEFT) x+=4;
+        if (keyCode==RIGHT) x-=4;
       }
     }
     hantei();
